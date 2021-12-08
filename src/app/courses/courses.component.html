@@ -1,0 +1,39 @@
+<h1>Courses</h1>
+<br>
+<table border="1">
+  <tr >
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <tr><td>BTS 530</td> 
+     <td>In this course students will work in groups to plan a major systems development project for.</td>
+     
+     </tr>
+     <tr>
+       <td>
+         BTS 330
+       </td>
+       <td>This course focuses on the techniques and tools involved insystems. Students will be introduced to  cycles, user interface mock-up design, a software requirements document template, and will learn how to use research, observation, interviews, </td>
+     </tr>
+  <tr class="alert alert-danger" *ngIf="errorMsg">
+    {{errorMsg}}
+  </tr>
+  <tr class="alert alert-danger" *ngIf="!errorMsg">
+  <td>{{courses.name}}</td>
+  <td>{{courses.description}}</td>
+</tr>
+</table>
+<style>
+  table th{
+    text-align: left;
+    background-color: rgb(196, 42, 42);
+
+  }
+  table td{
+    background-color: rgb(211, 28, 28);
+    border: 2px solid wheat;
+    padding: 5px 5px;
+    width: 1000px;
+
+  }
+</style>

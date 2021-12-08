@@ -1,0 +1,25 @@
+<div class="container" *ngIf="!sent">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form [formGroup]="FormData" (ngSubmit)="onSubmit(FormData.value)">
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="email" class="form-control" name="Email" aria-describedby="emailHelp" placeholder="Enter email"formControlName="Email">
+                </div>
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" class="form-control" name="Fullname" placeholder="Full Name" formControlName="Fullname">
+                </div>
+                <div class="form-group">
+                    <label for="Message">Message</label>
+                    <textarea class="form-control" formControlName="Message" name="Message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!FormData.valid">Send Email</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container" *ngIf="sent">
+    <br>
+    Email Sent!
+</div>

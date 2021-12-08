@@ -1,0 +1,53 @@
+<!--action="https://cryptic-lake-82663.herokuapp.com/register" method="post"
+
+[ngModel]="value" this is optional
+we can also use 
+ngModel 
+instead so that we don't show default data
+-->
+
+<div class="alert alert-danger" *ngIf="errorMsg">
+    {{errorMsg}}
+</div>
+
+<form #student="ngForm" *ngIf="!submitted" (ngSubmit)="onSubmit()" novalidate>
+
+    <div class="form-group">
+        <label class="control-label" for="fname">First Name:</label>
+        <input type="text"  class="form-control" [class.is-invalid]="fname.invalid && fname.touched" #fname="ngModel" id="fname" name="fname" [(ngModel)]="studentModel.fname" required autofocus>
+        <small class="text-danger" [class.d-none]="fname.valid || fname.untouched">First name is invalid</small> 
+    </div>
+  
+    <div class="form-group">
+        <label class="control-label" for="lname">Last Name:</label>
+        <input type="text" class="form-control" [class.is-invalid]="lname.invalid && lname.touched" #lname="ngModel" id="lname" name="lname" [(ngModel)]="studentModel.lname" required autofocus>
+        <small class="text-danger" [class.d-none]="lname.valid || lname.untouched">Last name is invalid</small>
+    </div>
+  
+    <div class="form-group">
+        <label class="control-label" for="email">Email:</label>
+        <input type="email" class="form-control" [class.is-invalid]="email.invalid && email.touched" #email="ngModel" id="email" name="email" [(ngModel)]="studentModel.email" required autofocus>
+        <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is invalid</small>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="name">Password:</label>
+        <input type="password"  [class.is-invalid]="password.invalid && password.touched" class="form-control" #password="ngModel" id="password" name="password" [(ngModel)]="studentModel.password" required autofocus>
+        <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is invalid</small>
+    </div>
+    <!--
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+        pattern="student.password.value"
+    -->
+
+    <div class="form-group">
+        <label class="control-label" for="name">Repeat Password:</label>
+        <input type="password"  [class.is-invalid]="password1.invalid && password1.touched" class="form-control" #password1="ngModel" id="password1" name="password1" [(ngModel)]="studentModel.password1" required autofocus>
+        <small class="text-danger" [class.d-none]="password1.valid || password1.untouched">Password is invalid</small>
+    </div>
+    <br><br>
+    <button [disabled]="student.form.invalid" class="btn btn-primary" type="submit">Register</button>&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-primary" type="reset">Clear</button>
+    
+</form>
+  
